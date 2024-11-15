@@ -1,0 +1,19 @@
+<div>
+    <h1>Bienvenido</h1>
+    <hr style="color: red;"/>
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let cubo of cubos; let i = index" [attr.key]="cubo.idCubo">
+            <div class="card my-3">
+                <img [src]="cubo.imagen" class="card-img-top" [alt]="'Imagen de ' + cubo.nombre" />
+                <div class="card-body">
+                    <h5 class="card-title">{{ cubo.nombre }}</h5>
+                    <p class="card-text">Precio: ${{ cubo.precio }}</p>
+                    <button class="btn btn-primary">
+                        <a [routerLink]="['/cubo', cubo.idCubo]" class="dropdown-item">Detalle</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <h1 class="text-center">Compras</h1>
+    <hr class="text-danger" />
+    
+    <!-- Botones -->
+    <div class="d-flex justify-content-between mb-3">
+        <a routerLink="/perfil" class="btn btn-secondary">Volver al perfil</a>
+        <a routerLink="/pedido" class="btn btn-primary">Realizar pedido</a>
+    </div>
+
+    <!-- Tabla de compras -->
+    <div *ngIf="compras.length === 0" class="text-center">
+        <p>No se encontraron compras.</p>
+    </div>
+    <table *ngIf="compras.length > 0" class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID Pedido</th>
+                <th>ID Cubo</th>
+                <th>Fecha de Pedido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let compra of compras" [attr.key]="compra.idPedido">
+                <td>{{ compra.idPedido }}</td>
+                <td>{{ compra.idCubo }}</td>
+                <td>{{ compra.fechaPedido | date: 'dd/MM/yyyy' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

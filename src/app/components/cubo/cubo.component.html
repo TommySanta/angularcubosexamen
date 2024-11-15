@@ -1,0 +1,53 @@
+<div>
+    <div *ngIf="!cubo" class="text-center">
+        <img src="assets/images/Loading.gif" alt="Cargando..." />
+    </div>
+
+    <div *ngIf="cubo">
+        <h1>{{ cubo.nombre }}</h1>
+        <hr style="color: red;" />
+
+        <div class="card mx-auto" style="max-width: 600px;">
+            <img [src]="cubo.imagen" class="card-img-top" [alt]="'Imagen de ' + cubo.nombre" />
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Marca</th>
+                            <td>{{ cubo.marca }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Valoración</th>
+                            <td>{{ cubo.valoracion }} / 5</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Precio</th>
+                            <td>${{ cubo.precio }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary">
+                    <a routerLink="/" class="dropdown-item">Volver</a>
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="comentarios && comentarios.length > 0">
+            <h1>Comentarios</h1>
+            <hr style="color: red;" />
+            <table class="table">
+                <thead></thead>
+                <tbody>
+                    <tr *ngFor="let comentario of comentarios" [attr.key]="comentario.idComentario">
+                        <td> Usuario {{ comentario.idUsuario }}</td>
+                        <td>{{ comentario.comentario }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div *ngIf="comentarios && comentarios.length === 0">
+            <p>No hay comentarios para este cubo.</p>
+        </div>
+    </div>
+</div>
