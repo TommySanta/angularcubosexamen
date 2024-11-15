@@ -99,7 +99,6 @@ export default class ServiceCubos {
         });
     }
 
-    // Modificado para devolver los cubos de una marca
     getCubosMarca(marca: string): Promise<Cubo[]> {
         return new Promise(function (resolve) {
             let request = "api/Cubos/CubosMarca/" + marca;

@@ -12,6 +12,7 @@ import { CuboComponent } from './components/cubo/cubo.component';
 import { LoginComponent } from './components/login/login.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ComprasComponent } from './components/compras/compras.component';
+import { CubosMarcaComponent } from './components/cubosmarca/cubosmarca.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ComprasComponent } from './components/compras/compras.component';
     CuboComponent,
     LoginComponent,
     PerfilComponent,
-    ComprasComponent
+    ComprasComponent,
+    CubosMarcaComponent
   ],
   imports: [
     BrowserModule,
